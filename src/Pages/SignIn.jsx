@@ -19,6 +19,9 @@ const SignIn = () => {
   const signupAction = () => {
     navigate('/signup');
   };
+  const dashboardAction = () =>{
+    navigate('/dashboard');
+  };
  const backgroundStyle = {
   backgroundImage: `url(${backgroundImage})`,
   backgroundPosition: 'center',
@@ -97,7 +100,7 @@ const perfixColor = {
              <Grid style={{ display: 'flex' }}>
                 <Checkbox color="primary" required/><p>Remember me</p>
                 </Grid>
-                <Button class="btn-style" variant='contained' type="submit" style={{margin:"10px" }}>Login</Button>
+                <Button onClick={dashboardAction} class="btn-style" variant='contained' type="submit" style={{margin:"10px" }}>Login</Button>
                <Grid>
                 <div style={iconStyles.container}>
                     <p style={iconStyles.text}>Or, Login with</p>
