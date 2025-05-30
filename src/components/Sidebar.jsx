@@ -64,6 +64,7 @@ const Sidebar = () => {
               {item.icon}
             </ListItemIcon>
             <ListItemText primary={item.text} />
+            
           </ListItemButton>
         ))}
       </List>
