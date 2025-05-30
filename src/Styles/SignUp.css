@@ -1,0 +1,51 @@
+.signup-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.signup-left {
+  flex: 1;
+  background-image: url('../assets/faq.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.signup-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.signup-right h2 {
+  margin-bottom: 20px;
+}
+
+.signup-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-right TextField {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.btn-style {
+  padding: 10px;
+  background-color: #FF6767;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+.btn-style:hover {
+  background-color: #0056b3;
+}
+

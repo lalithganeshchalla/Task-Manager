@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif
+}
+.header-style{
+    padding: 10px;
+    padding-left: 40px;
+    padding-top: 20px;
+
+}
