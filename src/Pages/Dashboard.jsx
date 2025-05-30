@@ -1,38 +1,45 @@
-/*import React from 'react'
-import '../Styles/Dashboard.css';
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
-
-
-const Dashboard = () => {
-  return (
-    <div>
-        <Navbar />
-        <Sidebar/>
-    </div>
-  )
-}
-
-export default Dashboard;*/
-
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Progress } from "@/components/ui/progress";
-import { Circle, CheckCircle, XCircle } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  Button,
+  Typography,
+  Box,
+  LinearProgress,
+} from "@mui/material";
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
+import Task1 from "../assets/task1.png";
+import Task2 from "../assets/task2.png";
+import Task3 from "../assets/task3.png";
+import Task4 from "../assets/task4.png";
+import Task5 from "../assets/task5.png";
+import Invite1 from "../assets/invite1.png";
+import Invite2 from "../assets/invite2.png";
+import Invite3 from "../assets/invite3.png";
+import Invite4 from "../assets/invite4.png";
 
 const Dashboard = () => {
+  const today = new Date();
+  const date = today.toLocaleDateString('en-IN',{
+
+    day: '2-digit',
+    month: 'long',
+    
+  });
   const tasks = [
     {
-      title: "Attend Nischal’s Birthday Party",
+      title: "Attend Nischal's Birthday Party",
       desc: "Buy gifts on the way and pick up cake from the bakery. [6 PM | Fresh Elements]",
       status: "Not Started",
       priority: "Moderate",
       date: "20/06/2023",
       color: "red",
-      img: "/birthday.jpg",
+      img: {src: Task1, alt: "Task 1"},
     },
     {
       title: "Landing Page Design for TravelDays",
@@ -41,7 +48,7 @@ const Dashboard = () => {
       priority: "Moderate",
       date: "20/06/2023",
       color: "blue",
-      img: "/travel.jpg",
+      img: {src: Task2, alt: "Task 2"},
     },
     {
       title: "Presentation on Final Product",
@@ -50,7 +57,7 @@ const Dashboard = () => {
       priority: "Moderate",
       date: "19/06/2023",
       color: "blue",
-      img: "/presentation.jpg",
+      img: {src: Task3, alt: "Task 3"},
     },
   ];
 
@@ -60,120 +67,197 @@ const Dashboard = () => {
       desc: "Take the dog to the park and bring treats as well.",
       status: "Completed",
       date: "Completed 2 days ago.",
-      img: "/dog.jpg",
+      img: {src: Task4, alt: "Task 3"},
     },
     {
       title: "Conduct meeting",
       desc: "Meet with the client and finalize requirements.",
       status: "Completed",
       date: "Completed 2 days ago.",
-      img: "/meeting.jpg",
+      img: {src: Task5, alt: "Task 3"}
     },
   ];
 
+  const colorMap = {
+    red: "#f44336",
+    blue: "#2196f3",
+    green: "#4caf50",
+  };
+
   return (
-    <div className="flex w-full min-h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="w-64 bg-black text-white p-4 flex flex-col justify-between">
-        <div>
-          <div className="flex flex-col items-center mb-8">
-            <Avatar className="w-16 h-16">
-              <AvatarImage src="/profile.jpg" />
-              <AvatarFallback>A</AvatarFallback>
-            </Avatar>
-            <p className="mt-2 text-sm">amanuel</p>
-            <p className="text-xs text-gray-400">amanuel@gmail.com</p>
-          </div>
-          <div className="space-y-4">
-            <Button variant="ghost" className="w-full text-left">Dashboard</Button>
-            <Button variant="ghost" className="w-full text-left">Vital Task</Button>
-            <Button variant="ghost" className="w-full text-left">My Task</Button>
-            <Button variant="ghost" className="w-full text-left">Task Categories</Button>
-            <Button variant="ghost" className="w-full text-left">Settings</Button>
-            <Button variant="ghost" className="w-full text-left">Help</Button>
-          </div>
-        </div>
-        <Button variant="ghost" className="w-full text-left text-red-500">Logout</Button>
-      </div>
+    <Box sx={{ width: "100%", minHeight: "100vh", bgcolor: "#f3f4f6" }}>
+      <Navbar />
 
-      {/* Main content */}
-      <div className="flex-1 p-6">
-        <h2 className="text-2xl font-semibold mb-4">Welcome back, amanuell👋</h2>
-        <div className="grid grid-cols-3 gap-4">
-          {/* To-Do */}
-          <Card className="col-span-2">
-            <CardContent className="p-4">
-              <div className="flex justify-between mb-4">
-                <h3 className="font-medium">To-Do</h3>
-                <Button variant="link" className="text-sm">+ Add task</Button>
-              </div>
-              {tasks.map((task, idx) => (
-                <div key={idx} className="border rounded-lg p-4 mb-3">
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2">
-                      <Circle className={`text-${task.color}-500`} size={12} />
-                      <p className="font-semibold text-sm">{task.title}</p>
-                    </div>
-                    <img src={task.img} className="w-12 h-12 rounded-md" />
-                  </div>
-                  <p className="text-xs mt-1 text-gray-600">{task.desc}</p>
-                  <div className="text-xs mt-2 flex justify-between text-gray-500">
-                    <span>Priority: {task.priority}</span>
-                    <span>Status: {task.status}</span>
-                    <span>Created on: {task.date}</span>
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+      <Box display="flex">
+        <Box
+          sx={{
+            width: 250,
+            bgcolor: "black",
+            color: "white",
+            p: 2,
+            minHeight: "calc(100vh - 64px)",
+          }}
+        >
+          <Sidebar />
+        </Box>
 
-          {/* Task Status */}
-          <Card>
-            <CardContent className="p-4">
-              <h3 className="font-medium mb-2">Task Status</h3>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="text-green-500" size={16} />
-                  <Progress value={84} className="w-full" />
-                  <span className="text-xs">Completed</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Circle className="text-blue-500" size={16} />
-                  <Progress value={46} className="w-full" />
-                  <span className="text-xs">In Progress</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <XCircle className="text-red-500" size={16} />
-                  <Progress value={13} className="w-full" />
-                  <span className="text-xs">Not Started</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Main Content */}
+        <Box flex={1} p={3}>
 
-          {/* Completed Tasks */}
-          <Card className="col-span-3">
-            <CardContent className="p-4">
-              <h3 className="font-medium mb-4">Completed Task</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {completedTasks.map((task, idx) => (
-                  <div key={idx} className="border rounded-lg p-3 flex gap-3 items-start">
-                    <CheckCircle className="text-green-500 mt-1" size={16} />
-                    <div className="flex-1">
-                      <p className="font-semibold text-sm">{task.title}</p>
-                      <p className="text-xs text-gray-600">{task.desc}</p>
-                      <p className="text-xs text-gray-400 mt-1">{task.date}</p>
-                    </div>
-                    <img src={task.img} className="w-14 h-14 rounded-md" />
-                  </div>
-                ))}
-              </div>
-            </CardContent>
+<Box mb={3}>
+  <Typography variant="h5">Welcome back, amanuell 👋</Typography>
+  <Box
+  display="flex"
+  flexWrap="wrap"
+  justifyContent="flex-end"
+  alignItems="center"
+  gap={2}
+  mb={3}
+>
+  <img src={Invite1} alt="Dashboard Hero"  />
+  <img src={Invite2} alt="Dashboard Hero" />
+  <img src={Invite3} alt="Dashboard Hero"/>
+  <img src={Invite4} alt="Dashboard Hero" />
+  <Button variant="outlined" color="primary" sx={{ height: 40 }}>
+    <PersonAddAlt1OutlinedIcon sx={{ mr: 1 }} /> Invite
+  </Button>
+</Box>
+</Box>
+          {/* Task & Status Section */}
+          <Card style={{ padding: "20px", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
+          <Box display="flex" flexWrap="wrap" gap={3}>
+            {/* To-Do */}
+            <Box flex={2} minWidth="40%">
+              <Card sx={{ mb: 5 ,width: "470px" }}>
+                <CardContent >
+                  <Box display="flex" justifyContent="space-between" mb={2}>
+                    <Typography variant="subtitle1">To-Do
+                      <Typography variant="body2" color="textSecondary">
+                        {date} • Today
+                        </Typography>
+                    </Typography>
+                    <Button size="small">+ Add task</Button>
+                  </Box>
+
+                  {tasks.map((task, idx) => (
+                    <Box
+                      key={idx}
+                      sx={{
+                        border: "1px solid #ddd",
+                        borderRadius: 2,
+                        p: 2,
+                        mb: 2, width: "400px"
+                      }}
+                    >
+                      <Box display="flex" justifyContent="space-between" alignItems="center">
+                        <Box display="flex" alignItems="center" gap={1}>
+                          <RadioButtonUncheckedIcon
+                            sx={{ color: colorMap[task.color] || "gray" }}
+                            fontSize="small"
+                          />
+                          <Typography variant="subtitle2">{task.title}</Typography>
+                        </Box>
+                        <img
+                          src={task.img.src}
+                          alt={task.img.alt}
+                          className="w-12 h-12 rounded-md"
+                        />
+                      </Box>
+                      <Typography variant="body2" mt={1} color="text.secondary">
+                        {task.desc}
+                      </Typography>
+                      <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        mt={1}
+                        sx={{ fontSize: 12, color: "#666" }}
+                      >
+                        <span>Priority: {task.priority}</span>
+                        <span>Status: {task.status}</span>
+                        <span>Created on: {task.date}</span>
+                      </Box>
+                    </Box>
+                  ))}
+                </CardContent>
+              </Card>
+            </Box>
+                  
+            {/* Task Status */}
+            <Box flex={2} minWidth="30%">
+              <Card sx={{ boxShadow: 3}}>
+                <CardContent>
+                  <Typography variant="subtitle1" gutterBottom>
+                    Task Status
+                  </Typography>
+
+                  <Box display="flex" alignItems="center" gap={1} mb={2}>
+                    <CheckCircleIcon sx={{ color: "green" }} fontSize="small" />
+                    <LinearProgress variant="determinate" value={84} sx={{ flex: 1 }} />
+                    <Typography variant="caption">Completed</Typography>
+                  </Box>
+
+                  <Box display="flex" alignItems="center" gap={1} mb={2}>
+                    <RadioButtonUncheckedIcon sx={{ color: "blue" }} fontSize="small" />
+                    <LinearProgress variant="determinate" value={46} sx={{ flex: 1 }} />
+                    <Typography variant="caption">In Progress</Typography>
+                  </Box>
+
+                  <Box display="flex" alignItems="center" gap={1}>
+                    <CancelIcon sx={{ color: "red" }} fontSize="small" />
+                    <LinearProgress variant="determinate" value={13} sx={{ flex: 1 }} />
+                    <Typography variant="caption">Not Started</Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+              <Box mt={3} display="flex" justifyContent="space-between" alignItems="center">
+              <Card>
+                <CardContent>
+                  <Typography variant="subtitle1" gutterBottom>
+                    Completed Task
+                  </Typography>
+                  <Box display="flex" flexWrap="wrap" gap={2}>
+                    {completedTasks.map((task, idx) => (
+                      <Box
+                        key={idx}
+                        display="flex"
+                        gap={2}
+                        alignItems="flex-start"
+                        sx={{
+                          border: "1px solid #ddd",
+                          borderRadius: 2,
+                          p: 2,
+                        }}
+                      >
+                        <CheckCircleIcon sx={{ color: "green", mt: 0.5 }} fontSize="small" />
+                        <Box flex={1}>
+                          <Typography variant="subtitle2">{task.title}</Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {task.desc}
+                          </Typography>
+                          <Typography variant="caption" color="text.disabled">
+                            {task.date}
+                          </Typography>
+                        </Box>
+                        <img
+                          src={task.img.src}
+                          alt={task.title}
+                          className="w-14 h-14 rounded-md"
+                        />
+                      </Box>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            </Box>
+            </Box>
+
+            {/* Completed Tasks */}
+            
+          </Box>
           </Card>
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
-
 export default Dashboard;
