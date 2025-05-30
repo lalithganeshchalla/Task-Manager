@@ -55,9 +55,9 @@ const Sidebar = () => {
               borderRadius: 2,
               bgcolor: item.active ? '#fff' : 'transparent',
               color: item.active ? '#f44336' : 'white',
-              '&:hover': {
-                bgcolor: '#333',
-              },
+              // '&:hover': {
+              //   bgcolor: '#333',
+              // },
             }}
           >
             <ListItemIcon sx={{ color: item.active ? '#f44336' : 'white' }}>
