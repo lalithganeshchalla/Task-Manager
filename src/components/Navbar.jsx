@@ -6,14 +6,15 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const Navbar = () => {
   const today = new Date();
-  const weekday = today.toLocaleDateString('en-US', { weekday: 'long' });
-  const date = today.toLocaleDateString('en-GB'); // DD/MM/YYYY
-    const fullTime = today.toLocaleTimeString('en-IN', {
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit',
-  hour12: true
-});
+  const weekday = today.toLocaleDateString('en-IN', { weekday: 'long' });
+  const date = today.toLocaleDateString('en-IN'); // DD/MM/YYYY
+//     const fullTime = today.toLocaleTimeString('en-IN', {
+//   hour: '2-digit',
+//   minute: '2-digit',
+//   second: '2-digit',
+//   hour12: true,
+//   second60 : true
+// });
 
 
   return (
@@ -23,7 +24,7 @@ const Navbar = () => {
       justifyContent="space-between"
       alignItems="center"
       p={2}
-      sx={{ backgroundColor: '#f9f9f9', boxShadow: '0px 4px 10px rgba(0,0,0,0.05)' }}
+      sx={{ backgroundColor: '#f9f9f9', boxShadow: '0px 4px 10px rgba(0,0,0,0.05)' , paddingLeft: '40px' }}
     >
       {/* Title */}
       <Typography variant="h5" fontWeight="bold">
@@ -37,11 +38,10 @@ const Navbar = () => {
         alignItems="center"
         bgcolor="#f5f8ff"
         borderRadius="12px"
-        px={2}
-        py={0.5}
+        pl={2}
         boxShadow="0px 4px 10px rgba(0,0,0,0.08)"
       >
-        <InputBase placeholder="Search your task here..." sx={{ flex: 1 , width: "200px" }} />
+        <InputBase placeholder="Search your task here..." sx={{ flex: 1 , width: "400px" }} />
         <IconButton sx={{
             backgroundColor: '#ff6b6b',
             color: '#fff',
@@ -78,10 +78,10 @@ const Navbar = () => {
   }}>
           <CalendarMonthIcon />
         </IconButton>
-        <Box ml={2} textAlign="right">
+        <Box ml={2} textAlign="right" pr={2}>
           <Typography variant="body2" fontWeight="bold"> {weekday} </Typography>
           <Typography variant="caption" color="primary"> {date} </Typography><br/>
-          <Typography variant="caption" color="primary"> {fullTime} </Typography>
+          {/* <Typography variant="caption" color="primary"> {fullTime} </Typography> */}
         </Box>
       </Box>
     </Box>

@@ -141,7 +141,7 @@ const SignUp = () => {
            <Grid style={{ display: 'flex' }}>
                     <Checkbox style={{margin:"10px"}} color="primary" required/><p>I agree to all terms</p>
                 </Grid>
-           <Button class="btn-style" style={{marginLeft:"10px"}} variant="contained">Register</Button>
+           <Button onClick={loginAction} class="btn-style" style={{marginLeft:"10px"}} variant="contained">Register</Button>
            <Grid>
             <p>Already have an account? <Button onClick={loginAction}>Login</Button></p>
            </Grid>
