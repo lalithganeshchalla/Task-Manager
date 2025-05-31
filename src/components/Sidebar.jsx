@@ -14,8 +14,8 @@ const Sidebar = () => {
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
     { text: 'Vital Task', icon: <AssignmentIcon />, path: '/vitaltasks' },
-    { text: 'Task Categories', icon: <CategoryIcon />, path: '/categories' },
     { text: 'My Task', icon: <CheckBoxIcon />, path: '/mytasks' },
+    { text: 'Task Categories', icon: <CategoryIcon />, path: '/categories'},
     { text: 'Settings', icon: <SettingsIcon />, path: '/setting' },
     { text: 'Help', icon: <HelpIcon />, path: '/help' },
   ];

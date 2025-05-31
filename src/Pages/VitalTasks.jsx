@@ -9,7 +9,6 @@ import Sidebar from "../components/Sidebar";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Task4 from "../assets/task4.png";
 import Task5 from "../assets/task5.png";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditSquareIcon from '@mui/icons-material/EditSquare';

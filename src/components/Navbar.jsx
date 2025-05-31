@@ -28,8 +28,8 @@ const Navbar = () => {
     >
       {/* Title */}
       <Typography variant="h5" fontWeight="bold">
-        <span style={{ color: '#ff6b6b' }}>Dash</span>
-        <span style={{ color: '#000' }}>board</span>
+        <span style={{ color: '#ff6b6b' }}>To-</span>
+        <span style={{ color: '#000' }}>Do</span>
       </Typography>
 
       {/* Search Box */}

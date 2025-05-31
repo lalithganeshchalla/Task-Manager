@@ -1,12 +1,12 @@
 import React from 'react'
-import {Box, Paper} from '@mui/material';
+import {Box, Paper, TextField} from '@mui/material';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import TableSection from '../components/TableSection';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
 
-const TasksCategory = () => {
+const CreateCategories = () => {
   return (
     <Box sx={{ width: "100%", minHeight: "100vh", bgcolor: "#f3f4f6" }}>
       <Navbar />
@@ -44,11 +44,23 @@ const TasksCategory = () => {
             </Typography>
             <Button variant="text">Go Back</Button>
           </Box>
+          <TextField 
+            label="Category Name"
+            variant="outlined"
+            fullWidth
+            sx={{ marginBottom: 2 }}
+          
+          />
+          <Box display="flex" flexDirection="row" gap={2} alignItems="center" width="100%">
 
-          <Button variant="contained" sx={{ bgcolor:'#F24E1E' }} color="primary">
-            Add New Task
+            <Button variant="contained" sx={{ bgcolor:'#F24E1E' }} color="primary">
+            Create
           </Button>
-          <TableSection />
+          <Button variant="contained" sx={{ bgcolor:'#F24E1E', paddingLeft:'10px' }} color="primary">
+            Cancel
+          </Button>
+          </Box>
+          
 
         </Box>
       </Paper>
@@ -62,4 +74,4 @@ const TasksCategory = () => {
   )
 }
 
-export default TasksCategory
+export default CreateCategories
