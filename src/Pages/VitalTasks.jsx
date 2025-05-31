@@ -9,6 +9,10 @@ import Sidebar from "../components/Sidebar";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Task4 from "../assets/task4.png";
 import Task5 from "../assets/task5.png";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditSquareIcon from '@mui/icons-material/EditSquare';
 
 
 const VitalTasks = () => {
@@ -93,13 +97,10 @@ const VitalTasks = () => {
                       </Box>
                     ))}
                   </Box>
-                
                 </Paper>
-            
             </Box>
             <Box flex={2} p={2}>
-            <Paper sx={{ padding: 2, minHeight: "calc(100vh - 64px)" , borderRadius: 2}}>
-                   
+              <Paper sx={{ padding: 2, minHeight: "calc(100vh - 64px)" , borderRadius: 2}}>
                     <Box display="flex" flexDirection='row' flexWrap="wrap" gap={2}>
                         <img
                           src={Task4}
@@ -119,30 +120,57 @@ const VitalTasks = () => {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             Completed 2 days ago.
-                            </Typography>
-                        </Box> 
+                        </Typography>
+                       </Box> 
                     </Box>
                     <Box display="flex" flexDirection='column' flexWrap="wrap" gap={2}>
-                    <Typography variant="subtitle1" color="text.secondary" mt={2}>
-                        Take the dog to the park and bring treats as well.
-                    </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" mt={2}>
-                        Take Luffy and Jiro for a leisurely stroll around the neighborhood. Enjoy the fresh air and give them the exercise and mental stimulation they need for a happy and healthy day. Don't forget to bring along squeaky and fluffy for some extra fun along the way!
-                    </Typography>
-                    <ol>
-                      <li>Listen to a podcast or audiobook</li>
+                      <Typography variant="subtitle1" color="text.secondary" mt={2}>
+                          Take the dog to the park and bring treats as well.
+                      </Typography>
+                      <Typography variant="subtitle1" color="text.secondary" mt={2}>
+                          Take Luffy and Jiro for a leisurely stroll around the neighborhood. Enjoy the fresh air and give them the exercise and mental stimulation they need for a happy and healthy day. Don't forget to bring along squeaky and fluffy for some extra fun along the way!
+                      </Typography>
+                      <ol variant="body2" color="text.secondary" mt={2}>
+                        <li>Listen to a podcast or audiobook</li>
                         <li>Practice mindfulness or meditation</li>
                         <li>Take photos of interesting sights along the way</li>
                         <li>Practice obedience training with your dog</li>
                         <li>Chat with neighbors or other dog walkers</li>
                         <li>Listen to music or an upbeat playlist</li>
-                    </ol>
+                      </ol>
                     </Box>
-                   
-                </Paper>
-            
+                    <Box display="flex" flexDirection='row' flexWrap="wrap" gap={2}>
+                      <Box display="flex" alignItems="end" gap={2}>
+                        <IconButton sx={{
+                          backgroundColor: '#ff6b6b',
+                          color: '#fff',
+                          borderRadius: '12px',
+                          padding: '8px',
+                          '&:hover': {
+                            backgroundColor: '#ff4c4c'
+                          },
+                          marginRight: '10px'
+                        }}>
+                          <DeleteIcon />
+                        </IconButton>
+                        <IconButton sx={{
+                          backgroundColor: '#ff6b6b',
+                          color: '#fff',
+                          borderRadius: '12px',
+                          padding: '8px',
+                          '&:hover': {
+                            backgroundColor: '#ff4c4c'
+                          }
+                        }}>
+                          <EditSquareIcon />
+                        </IconButton>
+                      </Box>
+                    </Box>
+              </Paper>
             </Box>
-        </Box>
-        </Box>  );
+      </Box>
+    </Box>
+  );    
+  
 };
 export default VitalTasks;
