@@ -5,8 +5,18 @@ import Sidebar from "../components/Sidebar";
 import TableSection from '../components/TableSection';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import AddTaskStatusDialogBox from '../components/AddTaskStatusDialogBox';
 
 const TasksCategory = () => {
+ 
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1); // Navigate back to the previous page
+  };
+  const CreateCategory = () => {
+    navigate('/createcategories'); // Navigate to the Create Category page
+  }
   return (
     <Box sx={{ width: "100%", minHeight: "100vh", bgcolor: "#f3f4f6" }}>
       <Navbar />
@@ -40,14 +50,15 @@ const TasksCategory = () => {
             width="100%"
           >
             <Typography variant="subtitle1" color="black">
-              Vital Tasks
+              Tasks Categories
             </Typography>
-            <Button variant="text">Go Back</Button>
+            <Button onClick={handleGoBack} variant="text">Go Back</Button>
           </Box>
 
-          <Button variant="contained" sx={{ bgcolor:'#F24E1E' }} color="primary">
+          <Button onClick={CreateCategory} variant="contained" sx={{ bgcolor:'#F24E1E' }} color="primary">
             Add New Task
           </Button>
+          
           <TableSection />
 
         </Box>

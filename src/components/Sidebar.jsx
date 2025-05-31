@@ -16,7 +16,7 @@ const Sidebar = () => {
     { text: 'Vital Task', icon: <AssignmentIcon />, path: '/vitaltasks' },
     { text: 'My Task', icon: <CheckBoxIcon />, path: '/mytasks' },
     { text: 'Task Categories', icon: <CategoryIcon />, path: '/categories',path1: '/createcategories' },
-    { text: 'Settings', icon: <SettingsIcon />, path: '/setting' },
+    { text: 'Settings', icon: <SettingsIcon />, path: '/accountinfo' },
     { text: 'Help', icon: <HelpIcon />, path: '/help' },
   ];
 

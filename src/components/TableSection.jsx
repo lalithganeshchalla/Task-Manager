@@ -15,73 +15,94 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import AddTaskStatusDialogBox from './AddTaskStatusDialogBox';
+import EditNewPriorityDialogBox from './EditNewPriorityDialogBox';
 
 const taskStatusData = ['Completed', 'In Progress', 'Not Started'];
 const taskPriorityData = ['Extreme', 'Moderate', 'Low'];
 
-const TableSection = ({ title, data, columnTitle }) => (
-  <Box mb={3}>
-    {/* Header */}
-    <Box display="flex" justifyContent="space-between" alignItems="center" mb={1}>
-      <Typography fontWeight="600" fontSize="14px" color="text.primary">
-        {title}
-      </Typography>
-      <Button
-        startIcon={<AddIcon />}
-        size="small"
-        sx={{ color: 'red', fontSize: '13px', textTransform: 'none' }}
-      >
-        {title === 'Task Status' ? 'Add Task Status' : 'Add New Priority'}
-      </Button>
-    </Box>
 
-    {/* Table */}
-    <TableContainer display='flex' flexdirction='column' justifyContent='start' component={Paper} sx={{ borderRadius: 2 , width: '700px', maxHeight: 400 }}>
-      <Table size="small" >
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontWeight: 'bold' }}>SN</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>{columnTitle}</TableCell>
-            <TableCell align="center" sx={{ fontWeight: 'bold' }}>Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((value, index) => (
-            <TableRow key={index}>
-              <TableCell>{index + 1}</TableCell>
-              <TableCell>{value}</TableCell>
-              <TableCell align="center">
-                <IconButton
-                  sx={{
-                    color: 'white',
-                    backgroundColor: '#f4511e',
-                    mr: 1,
-                    '&:hover': { backgroundColor: '#d84315' },
-                    padding: '4px'
-                  }}
-                >
-                  <EditIcon fontSize="small" />
-                </IconButton>
-                <IconButton
-                  sx={{
-                    color: 'white',
-                    backgroundColor: '#f4511e',
-                    '&:hover': { backgroundColor: '#d84315' },
-                    padding: '4px'
-                  }}
-                >
-                  <DeleteIcon fontSize="small" />
-                </IconButton>
-              </TableCell>
+const TableSection = ({ title, data, columnTitle }) => {
+  const [addTaskStatusDialogOpen, setAddTaskStatusDialogOpen] = React.useState(false);
+  const [addNewPriorityDialogOpen, setAddNewPriorityDialogOpen] = React.useState(false);
+  const [editTaskStatusDialogOpen, setEditTaskStatusDialogOpen] = React.useState(false);
+  const [editNewPriorityDialogOpen, setEditNewPriorityDialogOpen] = React.useState(false);
+
+  return (
+    <Box mb={3}>
+      {/* Header */}
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={1}>
+        <Typography fontWeight="600" fontSize="14px" color="text.primary">
+          {title}
+        </Typography>
+        <Button
+  onClick={() => {
+    if (title === 'Task Status') {
+      setAddTaskStatusDialogOpen(true);
+    } else {
+      setAddNewPriorityDialogOpen(true);
+    }
+  }}
+  startIcon={<AddIcon />}
+  size="small"
+  sx={{ color: 'red', fontSize: '13px', textTransform: 'none' }}
+>
+  {title === 'Task Status' ? 'Add Task Status' : 'Add New Priority'}
+</Button>
+        <AddTaskStatusDialogBox open={addTaskStatusDialogOpen} onClose={() => setAddTaskStatusDialogOpen(false)} />
+        <AddTaskStatusDialogBox open={addNewPriorityDialogOpen} onClose={() => setAddNewPriorityDialogOpen(false)} />
+      </Box>
+
+      {/* Table */}
+      <TableContainer display='flex' flexdirction='column' justifyContent='start' component={Paper} sx={{ borderRadius: 2 , width: '700px', maxHeight: 400 }}>
+        <Table size="small" >
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ fontWeight: 'bold' }}>SN</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>{columnTitle}</TableCell>
+              <TableCell align="center" sx={{ fontWeight: 'bold' }}>Action</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  </Box>
-);
+          </TableHead>
+          <TableBody>
+            {data.map((value, index) => (
+              <TableRow key={index}>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell>{value}</TableCell>
+                <TableCell align="center">
+                  <IconButton
+                    sx={{
+                      color: 'white',
+                      backgroundColor: '#f4511e',
+                      mr: 1,
+                      '&:hover': { backgroundColor: '#d84315' },
+                      padding: '4px'
+                    }}
+                  >
+                    <EditIcon onClick={() => setEditNewPriorityDialogOpen(true)} fontSize="small" />
+                        <EditNewPriorityDialogBox open={editNewPriorityDialogOpen} onClose={() => setEditNewPriorityDialogOpen(false)} />
+                  </IconButton>
+                  <IconButton
+                    sx={{
+                      color: 'white',
+                      backgroundColor: '#f4511e',
+                      '&:hover': { backgroundColor: '#d84315' },
+                      padding: '4px'
+                    }}
+                  >
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
+  );
+};
 
 export default function TaskTablesSection() {
+  
   return (
     <Box
       component={Paper}

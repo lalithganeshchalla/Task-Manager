@@ -12,9 +12,14 @@ import Task2 from "../assets/task2.png";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditSquareIcon from '@mui/icons-material/EditSquare';
+import { useNavigate } from "react-router-dom";
 
 
 const MyTasks = () => {
+   const navigate = useNavigate();
+  // const handleGoBack = () => {
+  //   navigate(-1); // Navigate back to the previous page
+  // };
   const completedTasks = [
     {
       title: "Submit Documents",
@@ -52,7 +57,7 @@ const MyTasks = () => {
         </Box>
           <Box flex={2} p={2}>
             <Paper sx={{ padding: 2,  height:'97%' , borderRadius: 2 }}>
-                <Typography variant="subtitle1" color="black">Vital Tasks</Typography>
+                <Typography variant="subtitle1" color="black">My Tasks</Typography>
                   <Box display="flex" flexWrap="wrap" gap={2}>
                     {completedTasks.map((task, idx) => (
                       <Box

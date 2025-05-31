@@ -10,6 +10,8 @@ import TasksCategory from './Pages/TasksCategory';
 import MyTasks from './Pages/MyTasks';
 import CreateCategories from './Pages/SubPages/CreateCategories';
 import PageError from './pag/PageError';
+import AccountInfo from './Pages/SubPages/AccountInfo';
+import ChangePassword from './Pages/SubPages/ChangePassWord';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/help" element={<Help/> }/>
           <Route path="/createcategories" element={<CreateCategories />} />
           <Route path="/pageerror" element={<PageError />} />
+          <Route path="/accountinfo" element={<AccountInfo />} />
+          <Route path="/changepassword" element={<ChangePassword />} />
         </Routes>
       </Router>
     </div>
