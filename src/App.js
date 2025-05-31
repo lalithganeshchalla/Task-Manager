@@ -8,7 +8,8 @@ import  Settings  from './Pages/Settings';
 import Help from './Pages/Help';
 import TasksCategory from './Pages/TasksCategory';
 import MyTasks from './Pages/MyTasks';
-import CreateCategories from './components/CreateCategories';
+import CreateCategories from './Pages/SubPages/CreateCategories';
+import PageError from './pag/PageError';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/setting" element={<Settings/> }/>
           <Route path="/help" element={<Help/> }/>
           <Route path="/createcategories" element={<CreateCategories />} />
+          <Route path="/pageerror" element={<PageError />} />
         </Routes>
       </Router>
     </div>

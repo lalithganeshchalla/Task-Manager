@@ -1,25 +1,18 @@
 import React from 'react'
 import { Button,
-  Box,
  } from '@mui/material';
-import LanguageSelect from '../Pages/LanguageSelect';
+import LanguageSelect from '../pag/LanguageSelect';
 import FaviouriteIcon from '@mui/icons-material/FavoriteBorder';
 import CartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { SearchIcon } from 'lucide-react';
 import { Divider } from 'antd';
 import InputBase from '@mui/material/InputBase';
 import Banner1 from '../assets/Banner1.png'; 
-import FlashSalesSection from '../components/FlashSalesSection';
-import CategorySection from '../components/CategorySection';
-import ProductsSection from '../comp/ProductsSection';
-import ad from '../assets/ad.png'; 
-import NewArrivalSection from '../comp/NewArrivalSection';
-import ServiceHighlights from '../comp/ServicesHighlights';
-import Footer from '../components/Footer';
+import Footer from '../comp/Footer';
 
 
 
-const ECommerceHome = () => {
+const PageError = () => {
   return (
     <div>
       <header style={{ display:'flex', flexDirection:'row' , justifyContent:'center', backgroundColor: '#000', textAlign: 'center' }}>
@@ -69,40 +62,25 @@ const ECommerceHome = () => {
   marginLeft: '150px',
   lineHeight: '2.8',
 }}>
-  <p style={{ color: '#000', margin: 0 }}>Women's Fashion</p>
-  <p style={{ color: '#000', margin: 0 }}>Men's Fashion</p>
-  <p style={{ color: '#000', margin: 0 }}>Electronics</p>
-  <p style={{ color: '#000', margin: 0 }}>Home & Lifestyle</p>
-  <p style={{ color: '#000', margin: 0 }}>Medicine</p>
-  <p style={{ color: '#000', margin: 0 }}>Sports & Outdoor</p>
-  <p style={{ color: '#000', margin: 0 }}>Baby's & Toys</p>
-  <p style={{ color: '#000', margin: 0 }}>Groceries & Pets</p>
-  <p style={{ color: '#000', margin: 0 }}>Health & Beauty</p>
+  <p style={{ color: '#000', margin: 0 }}>Home / 404 Error</p>
 </div>
-<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginLeft: '100px' }}>
-  <img src={Banner1} alt="Image" style={{ width: '800px', height: '300px' }} />
-</div>
+
           </div>
-          <FlashSalesSection/>
-          <CategorySection/>
-          <ProductsSection/>
-          <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              height="100vh" // or any specific height to center vertically
->
-  <img
-    src={ad}
-    alt="Rectangle 1"
-    style={{ width: '80%', height: 'auto' }}
-  />
-</Box>
-<NewArrivalSection/>
-<ServiceHighlights/>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginLeft: '100px' }}>
+ <h1>
+  404 Error: Page Not Found
+ </h1>
+  <p style={{ color: '#000', margin: 0 }}>The page you are looking for does not exist.</p>
+  <Button variant="contained" color="error" style={{ marginTop: '20px',marginBottom: '20px' }}>
+    Go Back to Home
+  </Button>
+</div>
+          
+         
+
 <Footer/>
     </div>
   )
 }
 
-export default ECommerceHome
+export default PageError
