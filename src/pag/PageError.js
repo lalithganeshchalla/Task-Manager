@@ -7,7 +7,6 @@ import CartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { SearchIcon } from 'lucide-react';
 import { Divider } from 'antd';
 import InputBase from '@mui/material/InputBase';
-import Banner1 from '../assets/Banner1.png'; 
 import Footer from '../comp/Footer';
 
 

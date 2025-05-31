@@ -2,7 +2,6 @@ import React from 'react'
 import {Box, Paper, TextField} from '@mui/material';
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import TableSection from '../../components/TableSection';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
 
