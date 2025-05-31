@@ -1,6 +1,7 @@
 // Sidebar.jsx
 import React from 'react';
-import { Box, Avatar, Typography, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Avatar, Typography, List, ListItemIcon, ListItemText } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -11,12 +12,12 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 const Sidebar = () => {
   const menuItems = [
-    { text: 'Dashboard', icon: <DashboardIcon />, active: true },
-    { text: 'Vital Task', icon: <AssignmentIcon /> },
-    { text: 'My Task', icon: <CheckBoxIcon /> },
-    { text: 'Task Categories', icon: <CategoryIcon /> },
-    { text: 'Settings', icon: <SettingsIcon /> },
-    { text: 'Help', icon: <HelpIcon /> },
+    { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
+    { text: 'Vital Task', icon: <AssignmentIcon />, path: '/vitaltasks' },
+    { text: 'Task Categories', icon: <CategoryIcon />, path: '/categories' },
+    { text: 'My Task', icon: <CheckBoxIcon />, path: '/mytasks' },
+    { text: 'Settings', icon: <SettingsIcon />, path: '/setting' },
+    { text: 'Help', icon: <HelpIcon />, path: '/help' },
   ];
 
   return (
@@ -30,14 +31,14 @@ const Sidebar = () => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         py: 2,
-        borderTopRightRadius:8,
+        borderTopRightRadius: 8,
         boxShadow: 3,
       }}
     >
       <Box sx={{ textAlign: 'center', mb: 2 }}>
         <Avatar
           alt="User"
-          src="https://randomuser.me/api/portraits/men/75.jpg" // Replace with real image
+          src="https://randomuser.me/api/portraits/men/75.jpg"
           sx={{ width: 60, height: 60, mx: 'auto', mb: 1 }}
         />
         <Typography variant="subtitle1">amanuel</Typography>
@@ -45,43 +46,54 @@ const Sidebar = () => {
           amanuel@gmail.com
         </Typography>
       </Box>
+
       <List>
         {menuItems.map((item, index) => (
-          <ListItemButton
+          <NavLink
+            to={item.path}
             key={index}
-            sx={{
-              mx: 2,
-              mb: 1,
-              borderRadius: 2,
-              bgcolor: item.active ? '#fff' : 'transparent',
-              color: item.active ? '#f44336' : 'white',
-              // '&:hover': {
-              //   bgcolor: '#333',
-              // },
-            }}
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? '#f44336' : 'white',
+              backgroundColor: isActive ? '#fff' : 'transparent',
+              borderRadius: '16px',
+              margin: '8px',
+              padding: '10px 16px',
+              display: 'flex',
+              alignItems: 'center',
+            })}
           >
-            <ListItemIcon sx={{ color: item.active ? '#f44336' : 'white' }}>
+            <ListItemIcon sx={{ color: 'inherit' }}>
               {item.icon}
             </ListItemIcon>
             <ListItemText primary={item.text} />
-            
-          </ListItemButton>
+          </NavLink>
         ))}
       </List>
 
-      {/* Logout */}
       <Box sx={{ px: 2 }}>
-        <ListItemButton
-          sx={{
+        <NavLink
+          to="/logout"
+          style={{
             color: 'white',
-            '&:hover': { bgcolor: '#333' },
+            textDecoration: 'none',
           }}
         >
-          <ListItemIcon sx={{ color: 'white' }}>
-            <LogoutIcon />
-          </ListItemIcon>
-          <ListItemText primary="Logout" />
-        </ListItemButton>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              '&:hover': { bgcolor: '#333' },
+              padding: '8px 16px',
+              borderRadius: 2,
+            }}
+          >
+            <ListItemIcon sx={{ color: 'white' }}>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </Box>
+        </NavLink>
       </Box>
     </Box>
   );

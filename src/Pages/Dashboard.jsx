@@ -13,6 +13,9 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
+import PendingActionsIcon from '@mui/icons-material/PendingActions';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import Task1 from "../assets/task1.png";
 import Task2 from "../assets/task2.png";
 import Task3 from "../assets/task3.png";
@@ -22,8 +25,12 @@ import Invite1 from "../assets/invite1.png";
 import Invite2 from "../assets/invite2.png";
 import Invite3 from "../assets/invite3.png";
 import Invite4 from "../assets/invite4.png";
+import InviteDialogBox from '../components/InviteDialogBox';
+import AddTaskDialogBox from "../components/AddTaskDialogBox";
 
 const Dashboard = () => {
+  const [inviteDialogOpen, setInviteDialogOpen] = React.useState(false);
+const [addTaskDialogOpen, setAddTaskDialogOpen] = React.useState(false);
   const today = new Date();
   const date = today.toLocaleDateString('en-IN',{
 
@@ -118,9 +125,10 @@ const Dashboard = () => {
   <img src={Invite2} alt="Dashboard Hero" />
   <img src={Invite3} alt="Dashboard Hero"/>
   <img src={Invite4} alt="Dashboard Hero" />
-  <Button variant="outlined" color="primary" sx={{ height: 40 }}>
-    <PersonAddAlt1OutlinedIcon sx={{ mr: 1 }} /> Invite
+  <Button onClick={() => setInviteDialogOpen(true)} variant="outlined" color="error" sx={{ height: 40 ,borderRadius: 3,color:'red',border:'1px solid red'}}>
+    <PersonAddAlt1OutlinedIcon sx={{ mr: 1 , color:'red' }} /> Invite
   </Button>
+  <InviteDialogBox open={inviteDialogOpen} onClose={() => setInviteDialogOpen(false)} />
 </Box>
 </Box>
           {/* Task & Status Section */}
@@ -131,12 +139,13 @@ const Dashboard = () => {
               <Card sx={{ mb: 5 ,width: "470px" }}>
                 <CardContent >
                   <Box display="flex" justifyContent="space-between" mb={2}>
-                    <Typography variant="subtitle1">To-Do
+                    <Typography variant="subtitle1" color="red"><PendingActionsIcon sx={{color:'gray'}}/> To-Do
                       <Typography variant="body2" color="textSecondary">
                         {date} • Today
                         </Typography>
                     </Typography>
-                    <Button size="small">+ Add task</Button>
+                    <Button onClick={() => setAddTaskDialogOpen(true)} size="small"sx={{color:'red'}}>+ Add task</Button>
+                    <AddTaskDialogBox open={addTaskDialogOpen} onClose={() => setAddTaskDialogOpen(false)} />
                   </Box>
 
                   {tasks.map((task, idx) => (
@@ -172,7 +181,7 @@ const Dashboard = () => {
                         mt={1}
                         sx={{ fontSize: 12, color: "#666" }}
                       >
-                        <span>Priority: {task.priority}</span>
+                        <span>Priority: {task.priority }</span>
                         <span>Status: {task.status}</span>
                         <span>Created on: {task.date}</span>
                       </Box>
@@ -184,9 +193,9 @@ const Dashboard = () => {
                   
             {/* Task Status */}
             <Box flex={2} minWidth="30%">
-              <Card sx={{ boxShadow: 3}}>
+              <Card sx={{ ml: 2 }}>
                 <CardContent>
-                  <Typography variant="subtitle1" gutterBottom>
+                  <Typography variant="subtitle1" gutterBottom sx={{color:"red"}}><ContentPasteSearchIcon sx={{color:"gray"}} />
                     Task Status
                   </Typography>
 
@@ -210,9 +219,9 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
               <Box mt={3} display="flex" justifyContent="space-between" alignItems="center">
-              <Card>
+              <Card sx={{ ml: 2 }}>
                 <CardContent>
-                  <Typography variant="subtitle1" gutterBottom>
+                  <Typography variant="subtitle1" gutterBottom sx={{color:"red"}}><AssignmentTurnedInIcon sx={{color:"gray"}} />
                     Completed Task
                   </Typography>
                   <Box display="flex" flexWrap="wrap" gap={2}>
