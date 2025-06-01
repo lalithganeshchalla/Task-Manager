@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/vitaltasks" element={<VitalTasks />} />
           <Route path="/categories" element={<TasksCategory/> }/>

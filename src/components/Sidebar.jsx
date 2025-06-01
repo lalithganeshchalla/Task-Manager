@@ -9,8 +9,15 @@ import CategoryIcon from '@mui/icons-material/Category';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpIcon from '@mui/icons-material/Help';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    
+          navigate('/');
+  };
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
     { text: 'Vital Task', icon: <AssignmentIcon />, path: '/vitaltasks' },
@@ -73,26 +80,30 @@ const Sidebar = () => {
 
       <Box sx={{ px: 2 }}>
         <NavLink
-          to="/logout"
+          to="/"
           style={{
             color: 'white',
             textDecoration: 'none',
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              '&:hover': { bgcolor: '#333' },
-              padding: '8px 16px',
-              borderRadius: 2,
-            }}
-          >
-            <ListItemIcon sx={{ color: 'white' }}>
-              <LogoutIcon />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
-          </Box>
+           <Box sx={{ px: 2 }}>
+      <Box
+        onClick={handleLogout}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+          '&:hover': { bgcolor: '#333' },
+          padding: '8px 16px',
+          borderRadius: 2,
+        }}
+      >
+        <ListItemIcon sx={{ color: 'white' }}>
+          <LogoutIcon />
+        </ListItemIcon>
+        <ListItemText primary="Logout" />
+      </Box>
+    </Box>
         </NavLink>
       </Box>
     </Box>

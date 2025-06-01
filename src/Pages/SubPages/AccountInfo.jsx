@@ -13,6 +13,13 @@ const AccountInfo = () => {
     const handleGoBack = () => {
         navigate(-1); // Navigate back to the previous page
         }
+          const handleDashboard = () => {
+            // Perform logout logic here, e.g., clearing tokens, etc.
+            navigate('/dashboard');
+          };
+          const handleChangePassword = () => {
+            navigate('/changepassword');
+          };
   return (
     <Box sx={{ width: "100%", minHeight: "100vh", bgcolor: "#f3f4f6" }}>
       <Navbar />
@@ -79,10 +86,10 @@ const AccountInfo = () => {
                 sx={{ marginBottom: 2 }}/>
           <Box display="flex" flexDirection="row" gap={2} alignItems="center" width="100%">
 
-            <Button  variant="contained" sx={{ bgcolor:'#F24E1E' }} color="primary">
+            <Button onClick={handleDashboard} variant="contained" sx={{ bgcolor:'#F24E1E' }} color="primary">
             Update Information
           </Button>
-          <Button  variant="contained" sx={{ bgcolor:'#F24E1E', paddingLeft:'10px' }} color="primary">
+          <Button onClick={handleChangePassword} variant="contained" sx={{ bgcolor:'#F24E1E', paddingLeft:'10px' }} color="primary">
             Change Password
           </Button>
           </Box>

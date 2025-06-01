@@ -3,6 +3,8 @@ import {Box} from '@mui/material';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 const Settings = () => {
+  
+
   return (
     <Box sx={{ width: "100%", minHeight: "100vh", bgcolor: "#f3f4f6" }}>
       <Navbar />

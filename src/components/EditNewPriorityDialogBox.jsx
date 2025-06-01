@@ -33,7 +33,7 @@ export default function EditNewPriorityDialogBox({ open, onClose }) {
     marginBottom: 0,
   }}
 >
-  <h2 style={{ margin: 0 }}>Add New Task</h2>
+  <h2 style={{ margin: 0 }}>Edit New Priority</h2>
   <Button sx={{ mt: 0 }} onClick={onClose}>Go Back</Button>
 </Box>
 
