@@ -12,11 +12,11 @@ import Task2 from "../assets/task2.png";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditSquareIcon from '@mui/icons-material/EditSquare';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 const MyTasks = () => {
-   const navigate = useNavigate();
+  //  const navigate = useNavigate();
   // const handleGoBack = () => {
   //   navigate(-1); // Navigate back to the previous page
   // };

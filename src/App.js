@@ -4,16 +4,13 @@ import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
 import Dashboard from './Pages/Dashboard';
 import VitalTasks from './Pages/VitalTasks';
-import  Settings  from './Pages/Settings';
+import Settings  from './Pages/Settings';
 import Help from './Pages/Help';
 import TasksCategory from './Pages/TasksCategory';
 import MyTasks from './Pages/MyTasks';
 import CreateCategories from './Pages/SubPages/CreateCategories';
-import PageError from './pag/PageError';
-import Account from './pag/Account';
 import AccountInfo from './Pages/SubPages/AccountInfo';
 import ChangePassword from './Pages/SubPages/ChangePassWord';
-import Contact from './pag/Contact';
 
 function App() {
   return (
@@ -30,11 +27,8 @@ function App() {
           <Route path="/setting" element={<Settings/> }/>
           <Route path="/help" element={<Help/> }/>
           <Route path="/createcategories" element={<CreateCategories />} />
-          <Route path="/pageerror" element={<PageError />} />
           <Route path="/accountinfo" element={<AccountInfo />} />
           <Route path="/changepassword" element={<ChangePassword />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
     </div>

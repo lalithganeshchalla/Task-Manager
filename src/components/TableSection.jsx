@@ -25,7 +25,7 @@ const taskPriorityData = ['Extreme', 'Moderate', 'Low'];
 const TableSection = ({ title, data, columnTitle }) => {
   const [addTaskStatusDialogOpen, setAddTaskStatusDialogOpen] = React.useState(false);
   const [addNewPriorityDialogOpen, setAddNewPriorityDialogOpen] = React.useState(false);
-  const [editTaskStatusDialogOpen, setEditTaskStatusDialogOpen] = React.useState(false);
+  //const [editTaskStatusDialogOpen, setEditTaskStatusDialogOpen] = React.useState(false);
   const [editNewPriorityDialogOpen, setEditNewPriorityDialogOpen] = React.useState(false);
 
   return (
